@@ -4,7 +4,7 @@ use asn1_der::DerObject;
 use tracing::{error, trace};
 
 use crate::common::asn1::{
-    asn1_encode_bit_string, TryIntoSequence, ASN1_BIT_STRING, ASN1_EXPLICIT_0, ASN1_EXPLICIT_1, ASN1_EXPLICIT_2, ASN1_INTEGER, ASN1_NULL, ASN1_OCTET, ASN1_OID
+    TryIntoSequence, ASN1_EXPLICIT_0, ASN1_EXPLICIT_1, ASN1_EXPLICIT_2, ASN1_NULL, ASN1_OID
 };
 use crate::{err::OcspError, oid::*};
 

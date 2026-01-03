@@ -282,7 +282,7 @@ mod test {
     // test dot to oid return None for unknown id
     #[test]
     fn test_unknown_oid() {
-        let dot = "this does not exists, obviously";
+        let dot = "this does not exist, obviously";
         let oid = d2i_oid(dot);
         assert!(oid.is_none());
     }
