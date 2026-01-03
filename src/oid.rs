@@ -274,9 +274,9 @@ mod test {
     // test dot notation to oid
     #[test]
     fn test_dot2oid() {
-        let dot = OCSP_EXT_EXTENDED_REVOKE_DOT;
+        let dot = ALGO_SHA384_WITH_RSA_ENCRYPTION_DOT;
         let oid = d2i_oid(dot).unwrap().index;
-        assert_eq!(oid, OCSP_EXT_EXTENDED_REVOKE_ID);
+        assert_eq!(oid, ALGO_SHA384_WITH_RSA_ENCRYPTION_ID);
     }
 
     // test dot to oid return None for unknown id
