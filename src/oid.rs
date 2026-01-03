@@ -279,6 +279,14 @@ mod test {
         assert_eq!(oid, ALGO_SHA384_WITH_RSA_ENCRYPTION_ID);
     }
 
+    // Test DER to internal ID
+    #[test]
+    fn test_binary2oid() {
+        let hex = ALGO_SHA384_WITH_RSA_ENCRYPTION_HEX;
+        let oid = b2i_oid(&hex).unwrap();
+        assert_eq!(oid, ALGO_SHA384_WITH_RSA_ENCRYPTION_ID);
+    }
+
     // test dot to oid return None for unknown id
     #[test]
     fn test_unknown_oid() {
