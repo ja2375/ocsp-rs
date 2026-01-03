@@ -177,6 +177,16 @@ pub const ALGO_SHA256_WITH_ECDSA_ENCRYPTION_NAME: &str =
 /// OID_MAX_ID = 3
 pub(crate) const OID_MAX_ID: usize = 13;
 
+pub(crate) const ALGO_SHA384_WITH_RSA_ENCRYPTION_ID: usize = 14;
+/// sha1WithRSAEncryption bytes in DER
+pub const ALGO_SHA384_WITH_RSA_ENCRYPTION_HEX: [u8; 9] =
+    [0x2a, 0x86, 0x48, 0x86, 0xf7, 0x0d, 0x01, 0x01, 0x0c];
+///sha1WithRSAEncryption dot notation
+pub const ALGO_SHA384_WITH_RSA_ENCRYPTION_DOT: &str = "1.2.840.113549.1.1.12";
+///sha1WithRSAEncryption asn1 notation
+pub const ALGO_SHA384_WITH_RSA_ENCRYPTION_NAME: &str =
+    "{iso(1) member-body(2) us(840) rsadsi(113549) pkcs(1) pkcs-1(1) sha384WithRSAEncryption(12)}";
+
 lazy_static! {
     /// search oid index by oid binary
     pub static ref OID_MAP: HashMap<Bytes, usize> = vec![
@@ -194,12 +204,13 @@ lazy_static! {
         (OCSP_RESPONSE_BASIC_HEX.to_vec(), OCSP_RESPONSE_BASIC_ID),
         (ALGO_SHA256_WITH_RSA_ENCRYPTION_HEX.to_vec(), ALGO_SHA256_WITH_RSA_ENCRYPTION_ID),
         (ALGO_SHA256_WITH_ECDSA_ENCRYPTION_HEX.to_vec(), ALGO_SHA256_WITH_ECDSA_ENCRYPTION_ID),
+        (ALGO_SHA384_WITH_RSA_ENCRYPTION_HEX.to_vec(), ALGO_SHA384_WITH_RSA_ENCRYPTION_ID),
     ]
     .into_iter()
     .collect();
 
     /// list of ocsp extension oid names
-    pub static ref OCSP_OID_NAME_LIST: [&'static str; 14] = [
+    pub static ref OCSP_OID_NAME_LIST: [&'static str; 15] = [
         OCSP_EXT_NONCE_NAME,
         OCSP_EXT_CRLREF_NAME,
         OCSP_EXT_RESP_TYPE_NAME,
@@ -214,10 +225,11 @@ lazy_static! {
         OCSP_RESPONSE_BASIC_NAME,
         ALGO_SHA256_WITH_RSA_ENCRYPTION_NAME,
         ALGO_SHA256_WITH_ECDSA_ENCRYPTION_NAME,
+        ALGO_SHA384_WITH_RSA_ENCRYPTION_NAME,
     ];
 
     /// list of ocsp extension oid in num dot format
-    pub static ref OCSP_OID_DOT_LIST: [&'static str; 14] = [
+    pub static ref OCSP_OID_DOT_LIST: [&'static str; 15] = [
         OCSP_EXT_NONCE_DOT,
         OCSP_EXT_CRLREF_DOT,
         OCSP_EXT_RESP_TYPE_DOT,
@@ -232,10 +244,11 @@ lazy_static! {
         OCSP_RESPONSE_BASIC_DOT,
         ALGO_SHA256_WITH_RSA_ENCRYPTION_DOT,
         ALGO_SHA256_WITH_ECDSA_ENCRYPTION_DOT,
+        ALGO_SHA384_WITH_RSA_ENCRYPTION_DOT,
     ];
 
     /// list of ocsp extension oid in bytes
-    pub static ref OCSP_OID_HEX_LIST: [Bytes; 14] = [
+    pub static ref OCSP_OID_HEX_LIST: [Bytes; 15] = [
         OCSP_EXT_NONCE_HEX.to_vec(),
         OCSP_EXT_CRLREF_HEX.to_vec(),
         OCSP_EXT_RESP_TYPE_HEX.to_vec(),
@@ -250,6 +263,7 @@ lazy_static! {
         OCSP_RESPONSE_BASIC_HEX.to_vec(),
         ALGO_SHA256_WITH_RSA_ENCRYPTION_HEX.to_vec(),
         ALGO_SHA256_WITH_ECDSA_ENCRYPTION_HEX.to_vec(),
+        ALGO_SHA384_WITH_RSA_ENCRYPTION_HEX.to_vec(),
     ];
 }
 
