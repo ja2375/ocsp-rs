@@ -1,5 +1,5 @@
 //! OCSP response  
-use tracing::{error, trace, warn};
+use tracing::{error, info, trace, warn};
 
 use crate::common::asn1::Bytes;
 use crate::common::{

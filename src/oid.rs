@@ -294,4 +294,12 @@ mod test {
         let oid = d2i_oid(dot);
         assert!(oid.is_none());
     }
+
+    // Test oid to DER
+    #[test]
+    fn test_oid2binary() {
+        let oid = &Oid { index: ALGO_SHA384_WITH_RSA_ENCRYPTION_ID };
+        let hex = i2b_oid(oid).unwrap();
+        assert_eq!(hex, ALGO_SHA384_WITH_RSA_ENCRYPTION_HEX);
+    }
 }
