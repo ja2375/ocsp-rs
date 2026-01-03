@@ -175,7 +175,7 @@ pub const ALGO_SHA256_WITH_ECDSA_ENCRYPTION_NAME: &str =
 /// eg.  
 /// oid_map contains 4 algos [0..3]  
 /// OID_MAX_ID = 3
-pub(crate) const OID_MAX_ID: usize = 13;
+pub(crate) const OID_MAX_ID: usize = 14;
 
 pub(crate) const ALGO_SHA384_WITH_RSA_ENCRYPTION_ID: usize = 14;
 /// sha1WithRSAEncryption bytes in DER
