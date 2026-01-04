@@ -1,5 +1,5 @@
 //! OCSP response  
-use tracing::{error, info, trace, warn};
+use tracing::{error, trace, warn};
 
 use crate::common::asn1::Bytes;
 use crate::common::{
@@ -381,13 +381,13 @@ impl BasicResponse {
         pad.extend(&self.signature);
         v.extend(asn1_encode_bit_string(&pad)?);
         if let Some(certs) = &self.certs {
-            let d =
-                yasna::construct_der_seq(|w| {
-                    w.next().write_sequence_of(|w| 
-                        for c in certs {
-                            w.next().write_der(c)
-                        })
-                    });
+            let d = yasna::construct_der_seq(|w| {
+                w.next().write_sequence_of(|w| {
+                    for c in certs {
+                        w.next().write_der(c)
+                    }
+                })
+            });
             let tag = yasna::Tag::context(0);
             let pc = yasna::PCBit::Constructed;
             let tv = yasna::models::TaggedDerValue::from_tag_pc_and_bytes(tag, pc, d);
